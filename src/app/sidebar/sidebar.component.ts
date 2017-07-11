@@ -7,9 +7,10 @@ import {CheckboxModule} from 'primeng/primeng';
 })
 export class SidebarComponent implements OnInit {
 
- myName='prachi';
- myCity="bhilwara";
+ myName='';
+ myCity='bhilwara';
  myEmail: "";
+  myphone:"";
   onSubmit(value : any){{ console.log(value);}}
   constructor() { }
 

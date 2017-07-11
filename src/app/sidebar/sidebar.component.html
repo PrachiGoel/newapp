@@ -8,30 +8,42 @@
   <form #userform="ngForm" (ngSubmit)="onSubmit(userform.value)">
     <div class="form-group" >
       <label>Name</label>
-      <input type="text" #nameRef="ngModel" required class="form-control" name="name" [(ngModel)]="myName">
+      <input type="text" #nameRef="ngModel" required minlength="4" class="form-control" name="name" [(ngModel)]="myName">
      <p> {{myName}}</p>
-      <div [hidden]="nameRef.valid || nameRef.pristine" class="alert alert-danger">Please enter correct</div>
+      <!--<div [hidden]="nameRef.valid || nameRef.pristine" class="alert alert-danger">Please enter correct name</div>-->
       <!--<b>{{nameRef.className}}</b>-->
+      <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger ">
+        <div [hidden]="!nameRef.errors.required" >Please enter the name</div>
+        <div [hidden]="!nameRef.errors.minlength" >Please enter atleast 4 characters</div>
+
+      </div>
     </div>
     <div class="form-group">
       <label>Email</label>
-      <input type="email" #nameRef="ngModel" class="form-control" name="email" [(ngModel)]="myEmail" required>
-      <div [hidden]="nameRef.valid || nameRef.pristine" class="alert alert-danger">
-        Please enter correct email</div>
+      <input type="email" #email="ngModel" class="form-control" name="email" [(ngModel)]="myEmail" required email>
+      <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+        <div [hidden]="!email.errors.required">Please enter the phone number</div>
+        <div [hidden]="!email.errors?.email">Please enter valid email</div>
     </div>
     <div ngModelGroup="adress">
     <div class="form-group">
       <label>Phone Number</label>
-      <input type="number" class="form-control" name="phone" ngModel>
+      <input type="text" #phone="ngModel" maxlength="10" minlength="10"  required class="form-control" name="phone" [(ngModel)]="myphone">
+      <div *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
+        <div [hidden]="!phone.errors.required">Please enter the phone number</div>
+        <div [hidden]="!phone.errors.minlength">Please enter a 10 digit mobile number</div>
+        <!--<div [hidden]="!phone.errors.pattern">Please enter valid Mobile number</div>-->
+
+      </div>
     </div>
     <div class="form-group">
       <label>City</label>
-      <input type="text" class="form-control" name="city" [ngModel]="myCity">
+      <input type="text" class="form-control" name="city" [(ngModel)]="myCity">
 
 
     </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!userform.form.valid">Submit</button></div>
   </form>
 <!--</div>-->
 
