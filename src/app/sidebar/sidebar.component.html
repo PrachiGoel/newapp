@@ -1,3 +1,37 @@
-<p>
-  sidebar works!
-</p>
+<!--<p>-->
+  <!--sidebar works!-->
+<!--</p>-->
+
+  <h2>user data</h2>
+
+<!--<div class=container">-->
+  <form #userform="ngForm" (ngSubmit)="onSubmit(userform.value)">
+    <div class="form-group" >
+      <label>Name</label>
+      <input type="text" #nameRef="ngModel" required class="form-control" name="name" [(ngModel)]="myName">
+     <p> {{myName}}</p>
+      <div [hidden]="nameRef.valid || nameRef.pristine" class="alert alert-danger">Please enter correct</div>
+      <!--<b>{{nameRef.className}}</b>-->
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" #nameRef="ngModel" class="form-control" name="email" [(ngModel)]="myEmail" required>
+      <div [hidden]="nameRef.valid || nameRef.pristine" class="alert alert-danger">
+        Please enter correct email</div>
+    </div>
+    <div ngModelGroup="adress">
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="number" class="form-control" name="phone" ngModel>
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" class="form-control" name="city" [ngModel]="myCity">
+
+
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+<!--</div>-->
+
