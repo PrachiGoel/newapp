@@ -3,13 +3,14 @@ import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
-
+import { AppRoutingModule} from './app-routing.module'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RightsectionComponent } from './rightsection/rightsection.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RightsectionComponent } from './rightsection/rightsection.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -23,11 +23,11 @@ export class SidebarComponent implements OnInit {
 
   reactiveForm = new FormGroup({
     name: new FormControl('prachi', Validators.required),
-    email: new FormControl('abc@gg.kk'),
+    email: new FormControl('abc@gg.kk',Validators.required),
     address: new FormGroup({
-      street: new FormControl('baker'),
-      phone: new FormControl('9999990099'),
-      city: new FormControl('london')
+      street: new FormControl('baker',Validators.required),
+      phone: new FormControl('9999990099',Validators.required),
+      city: new FormControl('london',Validators.required)
 
     })
 
