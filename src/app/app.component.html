@@ -1,6 +1,48 @@
 <h1>
   {{title}}
+
 </h1>
+<h2>  {{obj.id }}
+  {{obj.name | uppercase}}</h2>
+<ul>
+  <li *ngFor="let i of arr">{{i}}</li>
+</ul>
+<p *ngIf="!isTrue; else firstemp">Hello</p>
+<ng-template #firstemp > the is fmth vght</ng-template>
+<p *ngIf="myNAme != 'weu'">hi</p>
+<button (click)="onclick($event,myinput.value)">hello</button>
+<input #myinput type="text">
+<!--<p>{{mail.message}}</p>-->
+<!--<p>{{api}}</p>-->
+<ul>
+  <!--<li *ngFor="let a of mail.message">-->
+    <!--{{a}}-->
+  <!--</li>-->
+</ul>
+<div class="main">
+<h2>Items List</h2>
+<div class="add-item">
+  <input [(ngModel)]= "newitems" type="text">
+  <button (click)="pushitems()" >add</button>
+</div>
+<ul>
+  <li *ngFor="let i of items; let ind = index" >{{i}}<span (click)="remove(ind)">X</span></li>
+</ul>
+</div>
+<p>{{day}}</p>
+<p>{{day | date: 'shortDate'}}</p>
+<p>{{day | date: 'fullDate'}}</p>
+<ul>
+  <li *ngFor ="let image of data.hits">
+    <img [src]="image.webformatURL" />
+    <span>
+      <strong>LIKES</strong>
+      {{image.likes}}
+    </span>
+  </li>
+
+</ul>
+
 <app-sidebar></app-sidebar>
 <app-header></app-header>
 <app-rightsection></app-rightsection>

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
 import { AppRoutingModule} from './app-routing.module'
+import { MailService } from './mail.service'
+import { SortPipe } from './app.sort'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -18,7 +20,8 @@ import { RightsectionComponent } from './rightsection/rightsection.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    RightsectionComponent
+    RightsectionComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { RightsectionComponent } from './rightsection/rightsection.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  // providers: [{provide : 'mail', useClass:MailService},
+  //   {provide : 'api' , useValue : 'http://localhost:4200/' }],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
