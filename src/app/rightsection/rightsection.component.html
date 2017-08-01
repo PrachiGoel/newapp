@@ -1,8 +1,15 @@
 <p>
   rightsection works!
 </p>
-<!--<ul>-->
-  <!--<li *ngFor ="let Image of data.hits">-->
-    <!--<img src="{{Image.webformatURL}}" />-->
-  <!--</li>-->
-<!--</ul>-->
+<input type="text" [(ngModel)]="cityName">
+<button (click)="searchcity()">search</button>
+<ul>
+  <li *ngFor="let a of dta.list">
+    {{dta.city.name}}: {{a.weather[0].description}}
+    <p>Date:<b>{{a.dt_txt | date}}</b></p>
+    <p>Temperature: {{(a.main.temp - 32) * 5/9}}</p>
+    <p>Humidity: {{a.main.humidity}}</p>
+
+  </li>
+</ul>
+<span></span>

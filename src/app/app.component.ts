@@ -40,22 +40,27 @@ export class AppComponent {
   // }
   // constructor( @Inject('mail') private mail )
   // {}
-  private apiURL = 'https://pixabay.com/api/?key=6040467-517445ababf8d2fb4cdc9f409&q=usa&pretty=true';
+  private apiURL = 'https://pixabay.com/api/?key=6040467-517445ababf8d2fb4cdc9f409&pretty=true&q=' ;
   data : any = {};
+  myimage = "";
   constructor(private http : Http)
   {
     console.log("heallo");
     this.getdata();
-    this.getimages();
+    // this.getimages();
 
   }
   getdata(){
-    return this.http.get(this.apiURL)
-      .map((res : Response) => res.json());
+    return this.http.get(this.apiURL + this.myimage)
+      .map((res : Response) => res.json()).subscribe(data => {
+        this.data = data;
+        console.log(data);
+      });
   }
-  getimages(){
-    this.getdata().subscribe(data => {
-      console.log(data);
-    });
-  }
+  // getimages(){
+  //   this.getdata().subscribe(data => {
+  //     this.data = data;
+  //     console.log(data);
+  //   });
+  // }
 }

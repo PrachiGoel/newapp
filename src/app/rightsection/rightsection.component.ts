@@ -8,26 +8,42 @@ import 'rxjs/add/operator/map';
   templateUrl: './rightsection.component.html',
   styleUrls: ['./rightsection.component.css']
 })
-export class RightsectionComponent implements OnInit {
+export class RightsectionComponent  {
 
-  // private apiURL = 'https://pixabay.com/api/?key=6040467-517445ababf8d2fb4cdc9f409&q=usa&pretty=true';
-  // data : any = {};
-  // constructor(private http : Http)
-  // {
-  //    console.log("heallo");
-  //    this.getdata();
-  //    this.getimages()
-  // }
-  // getdata(){
-  //   return this.http.get(this.apiURL)
-  //   .map((res : Response) => res.json())
-  // }
-  // getimages(){
-  //   this.getdata().subscribe(data => {
-  //     console.log(data);
-  //   })
-  // }
-  ngOnInit() {
+  dta : any = {};
+  cityName = "";
+  constructor( private http : Http) {
+    console.log("hi prachi");
+    this.searchcity();
   }
+  searchcity() {
+    return this.http.get('http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=b9b371e12434fcbdb01ea895bd5950cc&q=' + this.cityName).map((res: Response) => res.json()).subscribe(dta => {
+      this.dta = dta;
+      console.log(dta);
+    })};
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// this.http.get('' + this.city).map((res: Response) => res.json()).subscribe({data => {this.data = data;console.log(data);}})

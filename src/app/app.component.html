@@ -32,6 +32,7 @@
 <p>{{day}}</p>
 <p>{{day | date: 'shortDate'}}</p>
 <p>{{day | date: 'fullDate'}}</p>
+<input type="text" [(ngModel)]="myimage"><button (click)="getdata()">Images</button>
 <ul>
   <li *ngFor ="let image of data.hits">
     <img [src]="image.webformatURL" />
