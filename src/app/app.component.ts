@@ -2,11 +2,13 @@ import {Component, Inject} from '@angular/core';
 import { Http , Response } from '@angular/http'
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import {MailService} from "./mail.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[MailService]
 })
 export class AppComponent {
   title = 'app works!';
@@ -35,28 +37,21 @@ export class AppComponent {
   remove = function(index){
     this.items.splice(index, 1);
   };
-  // constructor( private mail:MailService){
+  data : any = {};
+  constructor(private mailservice : MailService){ }
+    loadimage(){
+ this.mailservice.getdata().subscribe(data => {this.data= data; console.log(data);});
+  }
+  ngOnit(){}
+
+    // constructor( private mail:MailService){
   //
   // }
   // constructor( @Inject('mail') private mail )
   // {}
-  private apiURL = 'https://pixabay.com/api/?key=6040467-517445ababf8d2fb4cdc9f409&pretty=true&q=' ;
-  data : any = {};
-  myimage = "";
-  constructor(private http : Http)
-  {
-    console.log("heallo");
-    this.getdata();
-    // this.getimages();
 
-  }
-  getdata(){
-    return this.http.get(this.apiURL + this.myimage)
-      .map((res : Response) => res.json()).subscribe(data => {
-        this.data = data;
-        console.log(data);
-      });
-  }
+
+
   // getimages(){
   //   this.getdata().subscribe(data => {
   //     this.data = data;
