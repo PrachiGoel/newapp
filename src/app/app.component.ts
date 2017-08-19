@@ -3,12 +3,12 @@ import { Http , Response } from '@angular/http'
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import {MailService} from "./mail.service";
-
+import {Profileservice} from './header/about/profile.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:[MailService]
+  providers:[MailService,Profileservice]
 })
 export class AppComponent {
   title = 'app works!';
@@ -37,10 +37,19 @@ export class AppComponent {
   remove = function(index){
     this.items.splice(index, 1);
   };
+  songs:any = {};
+
   data : any = {};
-  constructor(private mailservice : MailService){ }
+  constructor(private mailservice : MailService,private songsservice:Profileservice){
+    this.loadsong();
+  }
     loadimage(){
  this.mailservice.getdata().subscribe(data => {this.data= data; console.log(data);});
+  }
+  loadsong(){
+
+    return this.songsservice.getsongs().subscribe(songs => {this.songs = songs;console.log(this.songs)}, error => console.log("Error: " + error));
+
   }
   ngOnit(){}
 

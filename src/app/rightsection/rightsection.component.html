@@ -6,7 +6,7 @@
 <ul>
   <li *ngFor="let a of dta.list">
     {{dta.city.name}}: {{a.weather[0].description}}
-    <p>Date:<b>{{a.dt_txt | date}}</b></p>
+    <p>Date:<b>{{a.dt_txt | date:'medium'}}</b></p>
     <p>Temperature: {{(a.main.temp - 32) * 5/9}}</p>
     <p>Humidity: {{a.main.humidity}}</p>
 

@@ -2,6 +2,10 @@
   {{title}}
 
 </h1>
+
+<script>
+
+</script>
 <h2>  {{obj.id }}
   {{obj.name | uppercase}}</h2>
 <ul>
@@ -33,6 +37,7 @@
 <p>{{day | date: 'shortDate'}}</p>
 <p>{{day | date: 'fullDate'}}</p>
 <input type="text" [(ngModel)]="myimage"><button (click)="loadimage()">Images</button>
+<!--<input type="text"><button (click)="loadsong(symbol:string)"></button>-->
 <ul>
   <li *ngFor ="let image of data.hits">
     <img [src]="image.webformatURL" />
