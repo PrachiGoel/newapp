@@ -37,34 +37,25 @@ export class AppComponent {
   remove = function(index){
     this.items.splice(index, 1);
   };
-  songs:any = {};
+
 
   data : any = {};
-  constructor(private mailservice : MailService,private songsservice:Profileservice){
-    this.loadsong();
+  songs:any = {};
+
+  constructor(private mailservice : MailService,private songsservice : Profileservice){
+    // this.loadsong();
   }
-    loadimage(){
- this.mailservice.getdata().subscribe(data => {this.data= data; console.log(data);});
-  }
+
   loadsong(){
 
-    return this.songsservice.getsongs().subscribe(songs => {this.songs = songs;console.log(this.songs)}, error => console.log("Error: " + error));
+  return this.songsservice.getsongs().subscribe(songs => {this.songs = songs;console.log(songs);});
 
   }
+    loadimage(){
+ this.mailservice.getdata().subscribe(data => {this.data= data; console.log(this.data);});
+  }
+
   ngOnit(){}
 
-    // constructor( private mail:MailService){
-  //
-  // }
-  // constructor( @Inject('mail') private mail )
-  // {}
 
-
-
-  // getimages(){
-  //   this.getdata().subscribe(data => {
-  //     this.data = data;
-  //     console.log(data);
-  //   });
-  // }
 }

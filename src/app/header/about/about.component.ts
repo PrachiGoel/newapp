@@ -7,25 +7,24 @@ import {Observable} from 'rxjs/Rx';
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
-  // providers:[Profileservice]
+  providers:[Profileservice]
 })
 export class AboutComponent implements OnInit {
   // songs:any = {};
   // public profileObj:any= {name:'',job:'',city:'',id:''};
-  // constructor(private songsservice : Profileservice) {
-  //   this.loadsong();
-  // }
-  //  loadsong(){
-  //
-  //   return this.songsservice.getsongs().subscribe(songs => {this.songs = songs;console.log(this.songs)});
-  //
-  // }
+  //  constructor(private songsservice : Profileservice) { }
 
+  // loadsong(){
+  //
+  //   return this.songsservice.getsongs().subscribe(songs => {this.songs = songs;console.log(songs);});
+  //
+  // }
   ngOnInit() {
-}
-public saveUserProfile()
-{
 
 }
+// public saveUserProfile()
+// {
+//
+// }
 
 }

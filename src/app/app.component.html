@@ -37,7 +37,8 @@
 <p>{{day | date: 'shortDate'}}</p>
 <p>{{day | date: 'fullDate'}}</p>
 <input type="text" [(ngModel)]="myimage"><button (click)="loadimage()">Images</button>
-<!--<input type="text"><button (click)="loadsong(symbol:string)"></button>-->
+<input type="text"><button (click)="loadsong()">songs</button>
+
 <ul>
   <li *ngFor ="let image of data.hits">
     <img [src]="image.webformatURL" />
@@ -46,9 +47,14 @@
       {{image.likes}}
     </span>
   </li>
-
-
 </ul>
+<ul>
+  <li *ngFor="let song of songs.object">
+  <p>Album ID: {{song.albumId}}</p>
+  </li>
+</ul>
+
+
 
 <app-sidebar></app-sidebar>
 <app-header></app-header>
