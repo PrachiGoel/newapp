@@ -39,22 +39,33 @@ export class AppComponent {
   };
 
 
-  data : any = {};
-  songs:any = {};
+  //////////////////songs form///////////
 
+// songid='';
+// songtitle='';
+//  songartist='';
+// release='';
+//  genre='';
+  ////////////////////////////////
+  data : any = {};
+  songs = {};
+  // songlist:any = [];
   constructor(private mailservice : MailService,private songsservice : Profileservice){
     // this.loadsong();
   }
 
   loadsong(){
 
-  return this.songsservice.getsongs().subscribe(songs => {this.songs = songs;console.log(songs);});
-
+  this.songsservice.getsongs().subscribe(songs => {this.songs = songs;console.log(songs);});
+// return this.songlist;
   }
     loadimage(){
  this.mailservice.getdata().subscribe(data => {this.data= data; console.log(this.data);});
   }
-
+uploadsongs()
+{
+  this.songsservice.post_songs().subscribe();
+}
   ngOnit(){}
 
 

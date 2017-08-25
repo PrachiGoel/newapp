@@ -37,8 +37,32 @@
 <p>{{day | date: 'shortDate'}}</p>
 <p>{{day | date: 'fullDate'}}</p>
 <input type="text" [(ngModel)]="myimage"><button (click)="loadimage()">Images</button>
-<input type="text"><button (click)="loadsong()">songs</button>
-
+<input type="text"><button (click)="uploadsongs()">songs</button>
+<!--<form action="post" #upload_song (ngSubmit)="onSubmit(upload_song.value)">-->
+  <!--<div  class="form-group col-md-5">-->
+    <!--<label for="">ID</label>-->
+    <!--<input type="number" #songid class="form-control">-->
+  <!--</div>-->
+  <!--<div  class="form-group  col-md-5">-->
+    <!--<label for="">TITLE</label>-->
+    <!--<input type="text" #songtitle class="form-control">-->
+  <!--</div>-->
+  <!--<div  class="form-group col-md-5">-->
+    <!--<label for="">ARTIST</label>-->
+    <!--<input type="text" #songartist class="form-control">-->
+  <!--</div>-->
+  <!--<div  class="form-group col-md-5">-->
+    <!--<label for="">RELEASE YEAR</label>-->
+    <!--<input type="number" #release class="form-control">-->
+  <!--</div>-->
+  <!--<div  class="form-group col-md-5">-->
+    <!--<label for="">GENRE</label>-->
+    <!--<input type="text" #genre class="form-control">-->
+  <!--</div>-->
+  <!--<div  class="form-group col-md-5">-->
+  <!--<button type="submit" (click)="loadsong()">Uploadsongs</button>-->
+  <!--</div>-->
+<!--</form>-->
 <ul>
   <li *ngFor ="let image of data.hits">
     <img [src]="image.webformatURL" />
@@ -49,8 +73,9 @@
   </li>
 </ul>
 <ul>
-  <li *ngFor="let song of songs.object">
-  <p>Album ID: {{song.albumId}}</p>
+  <li *ngFor="let song of songs">
+  <p>Album ID: {{song.id}}</p>
+    <p>Title: {{song.title}}</p>
   </li>
 </ul>
 
