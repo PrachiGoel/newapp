@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component,ViewChild, Inject} from '@angular/core';
 import { Http , Response } from '@angular/http'
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
@@ -38,7 +38,8 @@ export class AppComponent {
     this.items.splice(index, 1);
   };
 
-
+message= "hellow world";
+// @ViewChild(){   }
   //////////////////songs form///////////
 
 // songid='';
@@ -67,6 +68,9 @@ uploadsongs()
   this.songsservice.post_songs().subscribe();
 }
   ngOnit(){}
+recievemessage($event){
+    this.message = $event
+}
 
 
 }

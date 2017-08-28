@@ -82,7 +82,9 @@
 
 
 <app-sidebar></app-sidebar>
-<app-header></app-header>
+<app-header (messagevent)="recievemessage($event)">
+ Message : {{message}}
+</app-header>
 <app-rightsection></app-rightsection>
 <app-footer>
 
