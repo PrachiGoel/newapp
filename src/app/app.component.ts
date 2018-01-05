@@ -11,6 +11,15 @@ import {Profileservice} from './header/about/profile.service'
   providers:[MailService,Profileservice]
 })
 export class AppComponent {
+  count : number = 0;
+  updatefromchild($event)
+  {
+    this.count++;
+  }
+
+  reset(){
+    this.count =  0;
+  }
   title = 'app works!';
   myarr = [44,33,2,4,66,221];
  day = new Date (1994,2,12);
@@ -37,6 +46,14 @@ export class AppComponent {
   remove = function(index){
     this.items.splice(index, 1);
   };
+   song={};
+
+  doSubmit(value: any) {
+      {
+        console.log(value);
+        this.song=value;
+      }
+    }
 
 message= "hellow world";
 // @ViewChild(){   }
@@ -65,12 +82,13 @@ message= "hellow world";
   }
 uploadsongs()
 {
+  console.log(this.songsservice)
   this.songsservice.post_songs().subscribe();
 }
   ngOnit(){}
-recievemessage($event){
-    this.message = $event
-}
+// recievemessage($event){
+//     this.message = $event
+// }
 
 
 }

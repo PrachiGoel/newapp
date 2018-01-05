@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RightsectionComponent } from './rightsection/rightsection.component';
+import { BigtextDirective } from './bigtext.directive';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RightsectionComponent } from './rightsection/rightsection.component';
     FooterComponent,
     SidebarComponent,
     RightsectionComponent,
-    SortPipe
+    SortPipe,
+    BigtextDirective
   ],
   imports: [
     BrowserModule,

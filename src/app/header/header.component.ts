@@ -7,10 +7,11 @@ import { Component,Input,Output,OnInit,EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  // @Input() message : string;
+  @Input()
 
   message :string = "prachi Goel";
-  @Output() messagevent = new EventEmitter<string>();
+  @Output()
+  messagevent = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {

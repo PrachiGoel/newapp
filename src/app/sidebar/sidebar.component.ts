@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup , Validators } from '@angular/forms';
 import {CheckboxModule} from 'primeng/primeng';
 
@@ -9,6 +9,18 @@ import {CheckboxModule} from 'primeng/primeng';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+
+  @Input('parentCount')
+  // parentCount :number;
+  count:number;
+
+  @Output()
+
+    change : EventEmitter<number> = new EventEmitter<number>();
+  updateCount(){
+    this.count++;
+    this.change.emit(this.count);
+  }
   //
   // myName = '';
   // myCity = 'bhilwara';
